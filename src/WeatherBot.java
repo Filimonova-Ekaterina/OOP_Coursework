@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 public class WeatherBot extends TelegramLongPollingBot {
 
-    
+    private static final String BOT_TOKEN = "";
     private static final String BOT_USERNAME = "Weather_W1se_Bot";
     private static final String WEATHER_API_KEY = "c215c7d171aa0faf347de95d36f87980";
     private final Map<String, String> userStates = new HashMap<>();
@@ -35,6 +35,8 @@ public class WeatherBot extends TelegramLongPollingBot {
             if (update.getMessage().hasText()) {
                 String userMessage = update.getMessage().getText();
                 String chatId = update.getMessage().getChatId().toString();
+                String userName = update.getMessage().getFrom().getUserName();
+                System.out.println("Пользовательский запрос: [" + userName + "] " + userMessage);
                 String response = processMessage(chatId, userMessage);
                 SendMessage message = new SendMessage();
                 message.setChatId(chatId);
