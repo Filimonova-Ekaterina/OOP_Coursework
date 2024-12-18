@@ -116,7 +116,7 @@ class KeyboardHandler {
 
 class CityWeatherHandler {
     public static String getWeatherDescription(String city, String apiKey) {
-        String formattedCity = city.trim().replace(" ", "%20"); // Обработка пробелов
+        String formattedCity = city.trim().replace(" ", "%20"); 
         String apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + formattedCity +
                 "&appid=" + apiKey + "&units=metric&lang=ru";
         try {
